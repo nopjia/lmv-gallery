@@ -26,6 +26,7 @@
     <link rel="import" href="https://rawgit.com/nopjia/lmv-viewer/master/lmv-viewer.html">
 
     <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+    <link rel="import" href="bower_components/iron-icons/iron-icon.html">
 
     <link rel="import" href="bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
     <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
@@ -56,9 +57,9 @@
             <h1 class="one-third column">{{title}}</h1>
 
             <div class="two-thirds column links">
-              <paper-button raised>Developer Portal</paper-button>
-              <paper-button raised>API Docs</paper-button>
-              <paper-button raised>Autodesk</paper-button>
+              <a href="http://developer-autodesk.github.io/"><paper-button raised>About</paper-button></a>
+              <a href="https://developer.autodesk.com/api/view-and-data-api/"><paper-button raised>API Docs</paper-button></a>
+              <a href="https://developer.autodesk.com/"><paper-button raised>Web Services</paper-button></a>
             </div>
           </div>
 
@@ -87,7 +88,9 @@
       <div class="section-footer">
         <div class="container">
           <div class="row">
-            Made with Love <br>by Nop, Shiya, and Alice from Autodesk!
+            Made with <iron-icon icon="favorite" style="color:red; height:2rem; margin-top:-.4rem;"></iron-icon><br>
+            By Nop Jiarathanakul, Alice Chang, Shiya Luo<br>
+            Copyright © 2015 Autodesk, Inc.
           </div>
         </div>
       </div>
