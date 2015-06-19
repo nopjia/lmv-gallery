@@ -9,12 +9,23 @@ var getParameterByName = function(name) {
 
 (function() {
   var app = document.querySelector("#app");
+
+  window.NOP_APP = app;
   app.addEventListener("dom-change", function() {
     console.log("Polymer Ready!");
 
+    var viewerElem = document.querySelector("#viewer");
+    var viewer = viewerElem.viewer;
+
     app.title = "Test Title";
 
-    window.NOP_APP = app;
+    app.pageSelected = 0;
+
+    app.viewerExpand = function() {
+      document.querySelector(".section-hero").classList.toggle("viewer-expanded");
+      viewer.resize();
+    };
+
 
   });
 })();

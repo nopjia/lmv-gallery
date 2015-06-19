@@ -33,12 +33,24 @@
     <link rel="import" href="bower_components/paper-button/paper-button.html">
     <link rel="import" href="bower_components/paper-fab/paper-fab.html">
 
+    <link rel="import" href="bower_components/neon-animation/neon-animatable-behavior.html">
+    <link rel="import" href="bower_components/neon-animation/neon-animatable.html">
+    <link rel="import" href="bower_components/neon-animation/neon-animated-pages.html">
+    <link rel="import" href="bower_components/neon-animation/neon-animation-behavior.html">
+    <link rel="import" href="bower_components/neon-animation/neon-animation-runner-behavior.html">
+    <link rel="import" href="bower_components/neon-animation/neon-animation.html">
+    <link rel="import" href="bower_components/neon-animation/neon-animations.html">
+    <link rel="import" href="bower_components/neon-animation/neon-shared-element-animatable-behavior.html">
+    <link rel="import" href="bower_components/neon-animation/neon-shared-element-animation-behavior.html">
+    <link rel="import" href="bower_components/neon-animation/web-animations.html">
+
   </head>
   <body>
     <template is="dom-bind" id="app">
 
       <div class="section-hero">
-        <lmv-viewer url="https://lmv.rocks/data/engineraw/0.svf"></lmv-viewer>
+        <!-- <div id="viewer"></div> -->
+        <lmv-viewer id="viewer" url="https://lmv.rocks/data/engineraw/0.svf"></lmv-viewer>
         <div class="container">
           <div class="topbar row">
             <h1 class="one-third column">LMV Rocks</h1>
@@ -50,14 +62,14 @@
             </div>
           </div>
 
-          <paper-fab id="action-expand" icon="launch"></paper-fab>
+          <paper-fab id="action-expand" icon="launch" onclick="{{viewerExpand}}"></paper-fab>
         </div>
       </div>
 
       <div class="section-gallery">
+
         <div class="container">
           <h1>Gallery</h1>
-
           <div class="row">
             <paper-material class="four columns card">
               <paper-ripple></paper-ripple>
@@ -93,6 +105,7 @@
             </paper-material>
           </div>
         </div>
+
       </div>
 
       <div class="section-footer">
@@ -102,6 +115,16 @@
           </div>
         </div>
       </div>
+
+<!--       <div class="section-test">
+        <neon-animated-pages id="pages" selected="{{pageSelected}}" entry-animation="scale-up-animation">
+          <neon-animatable><div class="page" style="background:blue">1</div></neon-animatable>
+          <neon-animatable><div class="page" style="background:red">2</div></neon-animatable>
+          <neon-animatable><div class="page" style="background:green">3</div></neon-animatable>
+          <neon-animatable><div class="page" style="background:yellow">4</div></neon-animatable>
+          <neon-animatable><div class="page" style="background:orange">5</div></neon-animatable>
+        </neon-animated-pages>
+      </div> -->
 
 
     </template>
