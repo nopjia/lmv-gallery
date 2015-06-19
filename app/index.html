@@ -50,10 +50,10 @@
 
       <div class="section-hero">
         <!-- <div id="viewer"></div> -->
-        <lmv-viewer id="viewer" url="https://lmv.rocks/data/engineraw/0.svf"></lmv-viewer>
+        <lmv-viewer id="viewer" url="http://lmv.rocks/data/house/Residential Exterior.obj.svf"></lmv-viewer>
         <div class="container">
           <div class="topbar row">
-            <h1 class="one-third column">LMV Rocks</h1>
+            <h1 class="one-third column">{{title}}</h1>
 
             <div class="two-thirds column links">
               <paper-button raised>Developer Portal</paper-button>
@@ -67,45 +67,21 @@
       </div>
 
       <div class="section-gallery">
-
         <div class="container">
           <h1>Gallery</h1>
-          <div class="row">
-            <paper-material class="four columns card">
-              <paper-ripple></paper-ripple>
-              <div class="img" style="background-image: url(http://lorempixel.com/400/300/technics/10)"></div>
-              <div class="label">Lorem Ipsum</div>
-            </paper-material>
-            <paper-material class="four columns card">
-              <paper-ripple></paper-ripple>
-              <div class="img" style="background-image: url(http://lorempixel.com/400/300/technics/2)"></div>
-              <div class="label">Lorem Ipsum</div>
-            </paper-material>
-            <paper-material class="four columns card">
-              <paper-ripple></paper-ripple>
-              <div class="img" style="background-image: url(http://lorempixel.com/400/300/technics/3)"></div>
-              <div class="label">Lorem Ipsum</div>
-            </paper-material>
-          </div>
-          <div class="row">
-            <paper-material class="four columns card">
-              <paper-ripple></paper-ripple>
-              <div class="img" style="background-image: url(http://lorempixel.com/400/300/technics/4)"></div>
-              <div class="label">Lorem Ipsum</div>
-            </paper-material>
-            <paper-material class="four columns card">
-              <paper-ripple></paper-ripple>
-              <div class="img" style="background-image: url(http://lorempixel.com/400/300/technics/5)"></div>
-              <div class="label">Lorem Ipsum</div>
-            </paper-material>
-            <paper-material class="four columns card">
-              <paper-ripple></paper-ripple>
-              <div class="img" style="background-image: url(http://lorempixel.com/400/300/technics/6)"></div>
-              <div class="label">Lorem Ipsum</div>
-            </paper-material>
-          </div>
+          <template is="dom-repeat" items="{{galleryItems}}">
+            <div class="row">
+              <template is="dom-repeat" items="{{item}}">
+                <paper-material class="four columns card" url="{{item.url}}" onclick="{{gallerySelect}}">
+                  <paper-ripple></paper-ripple>
+                  <div class="img" style$="{{item.style}}"></div>
+                  <div class="label">{{item.name}}</div>
+                </paper-material>
+              </template>
+            </div>
+          </template>
         </div>
-
+      </div>
       </div>
 
       <div class="section-footer">
@@ -115,16 +91,6 @@
           </div>
         </div>
       </div>
-
-<!--       <div class="section-test">
-        <neon-animated-pages id="pages" selected="{{pageSelected}}" entry-animation="scale-up-animation">
-          <neon-animatable><div class="page" style="background:blue">1</div></neon-animatable>
-          <neon-animatable><div class="page" style="background:red">2</div></neon-animatable>
-          <neon-animatable><div class="page" style="background:green">3</div></neon-animatable>
-          <neon-animatable><div class="page" style="background:yellow">4</div></neon-animatable>
-          <neon-animatable><div class="page" style="background:orange">5</div></neon-animatable>
-        </neon-animated-pages>
-      </div> -->
 
 
     </template>
