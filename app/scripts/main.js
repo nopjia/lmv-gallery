@@ -10,8 +10,6 @@
 (function() {
   var app = document.querySelector("#app");
 
-  app.title = "LMV Rocks";
-
   var GALLERY_ITEMS = [
     {
       name: "Differential Gears",
@@ -74,6 +72,16 @@
     }
   })();
 
+  app.title = "LMV Rocks";
+
+  var avp = Autodesk.Viewing.Private;
+  app.envList = [];
+  for (var i=0; i<avp.LightPresets.length; i++) {
+    app.envList.push({
+      value: i, label: avp.LightPresets[i].name
+    });
+  }
+
   window.NOP_APP = app;
   app.addEventListener("dom-change", function() {
     console.log("Polymer Ready!");
@@ -103,12 +111,62 @@
     viewer.addEventListener(Autodesk.Viewing.MODEL_ROOT_LOADED_EVENT, firstLoad);
 
     app.viewerExpand = function() {
-      document.querySelector(".section-hero").classList.toggle("viewer-expanded");
+      document.getElementById("viewermenu").classList.toggle("viewer-expanded");
+      viewerElem.classList.toggle("viewer-expanded");
       viewer.resize();
+
+      app.toolbarClick();
     };
 
     app.gallerySelect = function() {
       viewerElem.setAttribute("url", this.url);
+    };
+
+    app.toolbarClick = function() {
+      var cmd = this.getAttribute("cmd");
+      var viewerMenu = document.querySelector("#viewermenu");
+
+      Array.prototype.forEach.call(viewerMenu.querySelectorAll(".panel"), function(elem) {
+        if (elem.classList.contains(cmd)) {
+          return;
+        }
+        elem.classList.remove("show");
+        setTimeout(function() {
+          elem.classList.add("dnone");  // TODO: this is bad!
+        }, 500);
+      });
+      var panel = viewerMenu.querySelector(".panel."+cmd);
+      if (panel) {
+        if (panel.classList.contains("show")) {
+          panel.classList.remove("show");
+          setTimeout(function() {
+            panel.classList.add("dnone");   // TODO: this is bad!
+          }, 500);
+        }
+        else {
+          panel.classList.add("show");
+          panel.classList.remove("dnone");
+        }
+
+
+      }
+    };
+
+    app.setExplode = function() {
+      viewer.explode(this.value/100);
+    };
+
+    app.setShadows = function() {
+      viewer.setGroundShadow(this.checked);
+    };
+
+    app.setReflections = function() {
+      viewer.setGroundReflection(this.checked);
+    };
+
+    app.setLighting = function() {
+      viewer.setLightPreset(this.value);
+      app.toolbarClick();
     };
 
   });

@@ -34,17 +34,10 @@
     <link rel="import" href="bower_components/paper-material/paper-material.html">
     <link rel="import" href="bower_components/paper-button/paper-button.html">
     <link rel="import" href="bower_components/paper-fab/paper-fab.html">
-
-    <link rel="import" href="bower_components/neon-animation/neon-animatable-behavior.html">
-    <link rel="import" href="bower_components/neon-animation/neon-animatable.html">
-    <link rel="import" href="bower_components/neon-animation/neon-animated-pages.html">
-    <link rel="import" href="bower_components/neon-animation/neon-animation-behavior.html">
-    <link rel="import" href="bower_components/neon-animation/neon-animation-runner-behavior.html">
-    <link rel="import" href="bower_components/neon-animation/neon-animation.html">
-    <link rel="import" href="bower_components/neon-animation/neon-animations.html">
-    <link rel="import" href="bower_components/neon-animation/neon-shared-element-animatable-behavior.html">
-    <link rel="import" href="bower_components/neon-animation/neon-shared-element-animation-behavior.html">
-    <link rel="import" href="bower_components/neon-animation/web-animations.html">
+    <link rel="import" href="bower_components/paper-slider/paper-slider.html">
+    <link rel="import" href="bower_components/paper-toggle-button/paper-toggle-button.html">
+    <link rel="import" href="bower_components/paper-menu/paper-menu.html">
+    <link rel="import" href="bower_components/paper-item/paper-item.html">
 
   </head>
   <body>
@@ -63,8 +56,29 @@
               <a href="https://developer.autodesk.com/"><paper-button raised>Web Services</paper-button></a>
             </div>
           </div>
+        </div>
+      </div>
 
-          <paper-fab id="action-expand" icon="launch" onclick="{{viewerExpand}}"></paper-fab>
+      <div id="viewermenu" class="container">
+        <div class="panels">
+          <paper-material class="panel dnone explode">
+            <paper-slider onchange="{{setExplode}}"></paper-slider>
+          </paper-material>
+          <paper-material class="panel dnone settings">
+            <div class="line"><paper-toggle-button onchange="{{setShadows}}"></paper-toggle-button><span class="label">Shadows</span><br></div>
+            <div class="line"><paper-toggle-button onchange="{{setReflections}}"></paper-toggle-button><span class="label">Reflections</span><br></div>
+          </paper-material>
+          <paper-menu class="panel dnone lighting">
+            <template is="dom-repeat" items="{{envList}}">
+              <paper-item value="{{item.value}}" onclick="{{setLighting}}">{{item.label}}</paper-item>
+            </template>
+          </paper-menu>
+        </div>
+        <div class="toolbar">
+          <paper-fab class="cmd" icon="open-with" onclick="{{toolbarClick}}" cmd="explode"></paper-fab>
+          <paper-fab class="cmd" icon="invert-colors" onclick="{{toolbarClick}}" cmd="lighting"></paper-fab>
+          <paper-fab class="cmd" icon="settings" onclick="{{toolbarClick}}" cmd="settings"></paper-fab>
+          <paper-fab icon="launch" onclick="{{viewerExpand}}" style="background:#4caf50; color:white"></paper-fab>
         </div>
       </div>
 
