@@ -1,0 +1,18 @@
+{
+  "name": "iamnop-site2",
+  "private": true,
+  "dependencies": {
+    "modernizr": "~2.8.1",
+    "skeleton": "~2.0.4",
+    "iron-elements": "PolymerElements/iron-elements#~1.0.0",
+    "paper-elements": "PolymerElements/paper-elements#~1.0.1"
+  },
+  "overrides": {
+    "skeleton": {
+      "main": [
+        "css/normalize.css",
+        "css/skeleton.css"
+      ]
+    }
+  }
+}

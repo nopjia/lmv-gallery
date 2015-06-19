@@ -1,0 +1,111 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LMV Gallery</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/skeleton/css/normalize.css" />
+    <link rel="stylesheet" href="/bower_components/skeleton/css/skeleton.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <!-- endbuild -->
+
+    <link rel="import" href="https://rawgit.com/nopjia/lmv-viewer/master/lmv-viewer.html">
+
+    <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+
+    <link rel="import" href="bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+    <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+    <link rel="import" href="bower_components/paper-material/paper-material.html">
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+    <link rel="import" href="bower_components/paper-fab/paper-fab.html">
+
+  </head>
+  <body>
+    <template is="dom-bind" id="app">
+
+      <div class="section-hero">
+        <lmv-viewer url="https://lmv.rocks/data/engineraw/0.svf"></lmv-viewer>
+        <div class="container">
+          <div class="topbar row">
+            <h1 class="one-third column">LMV Rocks</h1>
+
+            <div class="two-thirds column links">
+              <paper-button raised>Developer Portal</paper-button>
+              <paper-button raised>API Docs</paper-button>
+              <paper-button raised>Autodesk</paper-button>
+            </div>
+          </div>
+
+          <paper-fab id="action-expand" icon="launch"></paper-fab>
+        </div>
+      </div>
+
+      <div class="section-gallery">
+        <div class="container">
+          <h1>Gallery</h1>
+
+          <div class="row">
+            <paper-material class="four columns card">
+              <paper-ripple></paper-ripple>
+              <div class="img" style="background-image: url(http://lorempixel.com/400/300/technics/10)"></div>
+              <div class="label">Lorem Ipsum</div>
+            </paper-material>
+            <paper-material class="four columns card">
+              <paper-ripple></paper-ripple>
+              <div class="img" style="background-image: url(http://lorempixel.com/400/300/technics/2)"></div>
+              <div class="label">Lorem Ipsum</div>
+            </paper-material>
+            <paper-material class="four columns card">
+              <paper-ripple></paper-ripple>
+              <div class="img" style="background-image: url(http://lorempixel.com/400/300/technics/3)"></div>
+              <div class="label">Lorem Ipsum</div>
+            </paper-material>
+          </div>
+          <div class="row">
+            <paper-material class="four columns card">
+              <paper-ripple></paper-ripple>
+              <div class="img" style="background-image: url(http://lorempixel.com/400/300/technics/4)"></div>
+              <div class="label">Lorem Ipsum</div>
+            </paper-material>
+            <paper-material class="four columns card">
+              <paper-ripple></paper-ripple>
+              <div class="img" style="background-image: url(http://lorempixel.com/400/300/technics/5)"></div>
+              <div class="label">Lorem Ipsum</div>
+            </paper-material>
+            <paper-material class="four columns card">
+              <paper-ripple></paper-ripple>
+              <div class="img" style="background-image: url(http://lorempixel.com/400/300/technics/6)"></div>
+              <div class="label">Lorem Ipsum</div>
+            </paper-material>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-footer">
+        <div class="container">
+          <div class="row">
+            Made with Love <br>by Nop, Shiya, and Alice from Autodesk!
+          </div>
+        </div>
+      </div>
+
+
+    </template>
+
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
