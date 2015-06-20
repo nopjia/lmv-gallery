@@ -101,17 +101,11 @@ gulp.task("copy", function () {
   var elements = gulp.src(["app/elements/**/*.html"])
     .pipe(gulp.dest("dist/elements"));
 
-  var swBootstrap = gulp.src(["bower_components/platinum-sw/bootstrap/*.js"])
-    .pipe(gulp.dest("dist/elements/bootstrap"));
-
-  var swToolbox = gulp.src(["bower_components/sw-toolbox/*.js"])
-    .pipe(gulp.dest("dist/sw-toolbox"));
-
   var vulcanized = gulp.src(["app/elements/elements.html"])
     .pipe($.rename("elements.vulcanized.html"))
     .pipe(gulp.dest("dist/elements"));
 
-  return merge(app, bower, elements, vulcanized, swBootstrap, swToolbox)
+  return merge(app, bower, elements, vulcanized)
     .pipe($.size({title: "copy"}));
 });
 
