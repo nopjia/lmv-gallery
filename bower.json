@@ -1,19 +1,10 @@
 {
-  "name": "iamnop-site2",
+  "name": "lmv-gallery",
   "private": true,
   "dependencies": {
-    "modernizr": "~2.8.1",
-    "skeleton": "~2.0.4",
-    "iron-elements": "PolymerElements/iron-elements#~1.0.0",
-    "paper-elements": "PolymerElements/paper-elements#~1.0.1",
-    "neon-animation": "PolymerElements/neon-animation#~1.0.1"
-  },
-  "overrides": {
-    "skeleton": {
-      "main": [
-        "css/normalize.css",
-        "css/skeleton.css"
-      ]
-    }
+    "iron-elements": "PolymerElements/iron-elements#1.0.0",
+    "paper-elements": "PolymerElements/paper-elements#1.0.1",
+    "neon-elements": "PolymerElements/neon-elements#1.0.0",
+    "skeleton": "~2.0.4"
   }
 }

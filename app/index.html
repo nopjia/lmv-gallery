@@ -1,123 +1,109 @@
 <!doctype html>
-<html class="no-js" lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LMV Gallery</title>
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<html lang="">
 
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="/bower_components/skeleton/css/normalize.css" />
-    <link rel="stylesheet" href="/bower_components/skeleton/css/skeleton.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LMV Gallery</title>
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="bower_components/skeleton/css/normalize.css" />
+  <link rel="stylesheet" href="bower_components/skeleton/css/skeleton.css" />
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild-->
 
-    <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="/bower_components/modernizr/modernizr.js"></script>
-    <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
-    <!-- endbuild -->
+  <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <!-- endbuild -->
 
-    <!-- TODO: can't build, need vulcanize -->
-    <link rel="import" href="https://rawgit.com/nopjia/lmv-viewer/master/lmv-viewer.html">
+  <!-- will be replaced with elements/elements.vulcanized.html -->
+  <link rel="import" href="elements/elements.html">
+  <!-- endreplace-->
 
-    <link rel="import" href="bower_components/iron-icons/iron-icons.html">
-    <link rel="import" href="bower_components/iron-icons/iron-icon.html">
+  <link rel="import" href="https://rawgit.com/nopjia/lmv-viewer/master/lmv-viewer.html">
+</head>
 
-    <link rel="import" href="bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
-    <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
-    <link rel="import" href="bower_components/paper-material/paper-material.html">
-    <link rel="import" href="bower_components/paper-button/paper-button.html">
-    <link rel="import" href="bower_components/paper-fab/paper-fab.html">
-    <link rel="import" href="bower_components/paper-slider/paper-slider.html">
-    <link rel="import" href="bower_components/paper-toggle-button/paper-toggle-button.html">
-    <link rel="import" href="bower_components/paper-menu/paper-menu.html">
-    <link rel="import" href="bower_components/paper-item/paper-item.html">
+<body>
+  <template is="dom-bind" id="app">
 
-  </head>
-  <body>
-    <template is="dom-bind" id="app">
+    <div class="section-hero">
+      <!-- <div id="viewer"></div> -->
+      <lmv-viewer id="viewer" url="http://lmv.rocks/data/house/Residential Exterior.obj.svf"></lmv-viewer>
+      <div class="container">
+        <div class="topbar row">
+          <div class="one-half column">
+            <h1>Autodesk Viewer</h1>
+            <h5>The Viewing and Data API</h2>
+          </div>
 
-      <div class="section-hero">
-        <!-- <div id="viewer"></div> -->
-        <lmv-viewer id="viewer" url="http://lmv.rocks/data/house/Residential Exterior.obj.svf"></lmv-viewer>
-        <div class="container">
-          <div class="topbar row">
-            <div class="one-half column">
-              <h1>Autodesk Viewer</h1>
-              <h5>The Viewing and Data API</h2>
-            </div>
-
-            <div class="one-half column links">
-              <a href="http://developer-autodesk.github.io/"><paper-button raised>About</paper-button></a>
-              <a href="https://developer.autodesk.com/api/view-and-data-api/"><paper-button raised>API Docs</paper-button></a>
-              <a href="https://developer.autodesk.com/"><paper-button raised>Web Services</paper-button></a>
-            </div>
+          <div class="one-half column links">
+            <a href="http://developer-autodesk.github.io/"><paper-button raised>About</paper-button></a>
+            <a href="https://developer.autodesk.com/api/view-and-data-api/"><paper-button raised>API Docs</paper-button></a>
+            <a href="https://developer.autodesk.com/"><paper-button raised>Web Services</paper-button></a>
           </div>
         </div>
       </div>
+    </div>
 
-      <div id="viewermenu" class="container">
-        <div class="panels">
-          <paper-material class="panel dnone explode">
-            <paper-slider onchange="{{setExplode}}"></paper-slider>
-          </paper-material>
-          <paper-material class="panel dnone settings">
-            <div class="line"><paper-toggle-button onchange="{{setShadows}}"></paper-toggle-button><span class="label">Shadows</span><br></div>
-            <div class="line"><paper-toggle-button onchange="{{setReflections}}"></paper-toggle-button><span class="label">Reflections</span><br></div>
-          </paper-material>
-          <paper-menu class="panel dnone lighting">
-            <template is="dom-repeat" items="{{envList}}">
-              <paper-item value="{{item.value}}" onclick="{{setLighting}}">{{item.label}}</paper-item>
-            </template>
-          </paper-menu>
-        </div>
-        <div class="toolbar">
-          <paper-fab class="cmd" icon="open-with" onclick="{{toolbarClick}}" cmd="explode"></paper-fab>
-          <paper-fab class="cmd" icon="invert-colors" onclick="{{toolbarClick}}" cmd="lighting"></paper-fab>
-          <paper-fab class="cmd" icon="settings" onclick="{{toolbarClick}}" cmd="settings"></paper-fab>
-          <paper-fab icon="launch" onclick="{{viewerExpand}}" style="background:#4caf50; color:white"></paper-fab>
-        </div>
-      </div>
-
-      <div class="section-gallery">
-        <div class="container">
-          <h1>Gallery</h1>
-          <template is="dom-repeat" items="{{galleryItems}}">
-            <div class="row">
-              <template is="dom-repeat" items="{{item}}">
-                <paper-material class="four columns card" url="{{item.url}}" onclick="{{gallerySelect}}">
-                  <paper-ripple></paper-ripple>
-                  <div class="img" style$="{{item.style}}"></div>
-                  <div class="label">{{item.name}}</div>
-                </paper-material>
-              </template>
-            </div>
+    <div id="viewermenu" class="container">
+      <div class="panels">
+        <paper-material class="panel dnone explode">
+          <paper-slider onchange="{{setExplode}}"></paper-slider>
+        </paper-material>
+        <paper-material class="panel dnone settings">
+          <div class="line"><paper-toggle-button onchange="{{setShadows}}"></paper-toggle-button><span class="label">Shadows</span><br></div>
+          <div class="line"><paper-toggle-button onchange="{{setReflections}}"></paper-toggle-button><span class="label">Reflections</span><br></div>
+        </paper-material>
+        <paper-menu class="panel dnone lighting">
+          <template is="dom-repeat" items="{{envList}}">
+            <paper-item value="{{item.value}}" onclick="{{setLighting}}">{{item.label}}</paper-item>
           </template>
-        </div>
+        </paper-menu>
       </div>
+      <div class="toolbar">
+        <paper-fab class="cmd" icon="open-with" onclick="{{toolbarClick}}" cmd="explode"></paper-fab>
+        <paper-fab class="cmd" icon="invert-colors" onclick="{{toolbarClick}}" cmd="lighting"></paper-fab>
+        <paper-fab class="cmd" icon="settings" onclick="{{toolbarClick}}" cmd="settings"></paper-fab>
+        <paper-fab icon="launch" onclick="{{viewerExpand}}" style="background:#4caf50; color:white"></paper-fab>
       </div>
+    </div>
 
-      <div class="section-footer">
-        <div class="container">
+    <div class="section-gallery">
+      <div class="container">
+        <h1>Gallery</h1>
+        <template is="dom-repeat" items="{{galleryItems}}">
           <div class="row">
-            Made with <iron-icon icon="favorite" style="color:red; height:2rem; margin-top:-.4rem;"></iron-icon><br>
-            By Nop Jiarathanakul, Alice Chang, Shiya Luo<br>
-            Copyright © 2015 Autodesk, Inc.
+            <template is="dom-repeat" items="{{item}}">
+              <paper-material class="four columns card" url="{{item.url}}" onclick="{{gallerySelect}}">
+                <paper-ripple></paper-ripple>
+                <div class="img" style$="{{item.style}}"></div>
+                <div class="label">{{item.name}}</div>
+              </paper-material>
+            </template>
           </div>
+        </template>
+      </div>
+    </div>
+    </div>
+
+    <div class="section-footer">
+      <div class="container">
+        <div class="row">
+          Made with <iron-icon icon="favorite" style="color:red; height:2rem; margin-top:-.4rem;"></iron-icon><br>
+          By Nop Jiarathanakul, Alice Chang, Shiya Luo<br>
+          Copyright © 2015 Autodesk, Inc.
         </div>
       </div>
+    </div>
 
 
-    </template>
+  </template>
 
-    <!-- build:js scripts/main.js -->
-    <script src="scripts/main.js"></script>
-    <!-- endbuild -->
-  </body>
+  <!-- build:js scripts/main.js -->
+  <script src="scripts/main.js"></script>
+  <!-- endbuild -->
+</body>
+
 </html>

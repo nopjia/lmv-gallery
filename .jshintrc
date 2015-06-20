@@ -1,6 +1,6 @@
 {
-  "browser": true,
   "node": true,
+  "browser": true,
   "esnext": true,
   "bitwise": true,
   "camelcase": true,
@@ -9,15 +9,18 @@
   "immed": true,
   "indent": 2,
   "latedef": true,
-  "newcap": true,
   "noarg": true,
   "quotmark": "double",
   "undef": true,
   "unused": true,
-  "strict": true,
-  "jquery": true,
   "globals": {
-    "THREE": true,
-    "Autodesk": true
+    "wrap": true,
+    "unwrap": true,
+    "Polymer": true,
+    "Platform": true,
+    "page": true,
+    "app": true,
+    "Autodesk": true,
+    "THREE": true
   }
 }
