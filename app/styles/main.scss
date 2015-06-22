@@ -7,12 +7,16 @@ body {
   font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
 }
 
-$viewer-height: 60rem;
+$viewer-height: 600px;
 .section-hero {
   position: relative;
   display: block;
   width: 100%;
   height: $viewer-height;
+
+  @media (max-height: $viewer-height) {
+    height: 400px;
+  }
 
   .container {
     height: 100%;
@@ -45,6 +49,9 @@ $viewer-height: 60rem;
       margin-top: 4.5rem;
       paper-button {
         background: white;
+      }
+      @media (max-width: 550px) {
+        display: none;
       }
     }
   }
