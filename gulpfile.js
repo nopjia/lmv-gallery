@@ -166,7 +166,7 @@ gulp.task("serve", ["styles", "elements", "images"], function () {
     notify: false,
     snippetOptions: {
       rule: {
-        match: "<span id='browser-sync-binding'></span>",
+        match: "<span id=\"browser-sync-binding\"></span>",
         fn: function (snippet) {
           return snippet;
         }
@@ -185,8 +185,8 @@ gulp.task("serve", ["styles", "elements", "images"], function () {
   });
 
   gulp.watch(["app/**/*.html"], reload);
-  gulp.watch(["app/styles/**/*.css"], ["styles", reload]);
-  gulp.watch(["app/elements/**/*.css"], ["elements", reload]);
+  gulp.watch(["app/styles/**/*.{scss,css}"], ["styles", reload]);
+  gulp.watch(["app/elements/**/*.{scss,css}"], ["elements", reload]);
   gulp.watch(["app/{scripts,elements}/**/*.js"], ["jshint"]);
   gulp.watch(["app/images/**/*"], reload);
 });
