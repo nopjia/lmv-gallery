@@ -36,10 +36,15 @@
       image: "http://lmv.rocks/gallery/thumbs/thumb_racecar.jpg",
       url: "http://lmv.rocks/data/racecar/Design.svf"
     },
+    // {
+    //   name: "Mountain Bike",
+    //   image: "http://lmv.rocks/gallery/thumbs/thumb_bike.jpg",
+    //   url: "https://lmv.rocks/data/bike/0.svf"
+    // },
     {
-      name: "Mountain Bike",
-      image: "http://lmv.rocks/gallery/thumbs/thumb_bike.jpg",
-      url: "https://lmv.rocks/data/bike/0.svf"
+      name: "TVR Engine",
+      image: "http://lmv.rocks/gallery/thumbs/thumb_v8.jpg",
+      url: "http://lmv.rocks/data/engine2L/Design.svf"
     },
     {
       name: "Trench Digger",
@@ -120,6 +125,11 @@
 
     app.gallerySelect = function() {
       viewerElem.setAttribute("url", this.url);
+    };
+
+    app.galleryLaunch = function(event) {
+      window.open("http://lmv.rocks/viewer/?url=" + this.url);
+      event.stopPropagation();
     };
 
     app.toolbarClick = function() {

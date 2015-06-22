@@ -71,7 +71,7 @@
         <paper-fab class="cmd" icon="open-with" onclick="{{toolbarClick}}" cmd="explode"></paper-fab>
         <paper-fab class="cmd" icon="invert-colors" onclick="{{toolbarClick}}" cmd="lighting"></paper-fab>
         <paper-fab class="cmd" icon="settings" onclick="{{toolbarClick}}" cmd="settings"></paper-fab>
-        <paper-fab icon="launch" onclick="{{viewerExpand}}" style="background:#4caf50; color:white"></paper-fab>
+        <paper-fab icon="fullscreen" onclick="{{viewerExpand}}" style="background:#4caf50; color:white"></paper-fab>
       </div>
     </div>
 
@@ -84,7 +84,10 @@
               <paper-material class="four columns card" url="{{item.url}}" onclick="{{gallerySelect}}">
                 <paper-ripple></paper-ripple>
                 <div class="img" style$="{{item.style}}"></div>
-                <div class="label">{{item.name}}</div>
+                <div class="label">
+                  <span>{{item.name}}</span>
+                  <iron-icon icon="launch" url="{{item.url}}" onclick="{{galleryLaunch}}"></iron-icon>
+                </div>
               </paper-material>
             </template>
           </div>

@@ -1,6 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto);
 
 $rounded-corners: 4px;
+$primary-gray: #999;
 
 body {
   font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
@@ -130,7 +131,7 @@ $viewermenu-push: 28px;
     paper-fab {
       pointer-events: auto;
       background: white;
-      color: #999;
+      color: $primary-gray;
       margin-left: 2rem;
     }
 
@@ -186,6 +187,16 @@ $viewermenu-push: 28px;
     .label {
       background: #EEE;
       padding: 1rem;
+      display: flex;
+      > span {
+        flex-grow: 1;
+      }
+      > iron-icon {
+        color: $primary-gray;
+        &:hover {
+          color: #1EAEDB;
+        }
+      }
     }
 
     .img {
@@ -201,7 +212,7 @@ $viewermenu-push: 28px;
   background: white;
   padding: 8rem 0;
   height: 15rem;
-  color: #999;
+  color: $primary-gray;
 }
 
 .section-test {
