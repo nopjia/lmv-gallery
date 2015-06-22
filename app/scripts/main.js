@@ -162,8 +162,11 @@
       }
     };
 
-    app.setExplode = function() {
-      viewer.explode(this.value/100);
+    app.setExplode = function(value) {
+      if (this.explodeValue === value)
+        return;
+      this.explodeValue = value;
+      viewer.explode(value/100);
     };
 
     app.setShadows = function() {
@@ -178,6 +181,20 @@
       viewer.setLightPreset(this.value);
       app.toolbarClick();
     };
+
+    var explodeSlider = document.querySelector(".panel.explode > paper-slider");
+    explodeSlider.addEventListener(
+      "immediate-value-change",
+      function() {
+        app.setExplode(this.immediateValue);
+      }
+    );
+    explodeSlider.addEventListener(
+      "value-change",
+      function() {
+        app.setExplode(this.value);
+      }
+    );
 
   });
 })();
