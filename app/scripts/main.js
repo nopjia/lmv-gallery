@@ -79,20 +79,22 @@
 
   app.title = "LMV Rocks";
 
-  var avp = Autodesk.Viewing.Private;
-  app.envList = [];
-  for (var i=0; i<avp.LightPresets.length; i++) {
-    app.envList.push({
-      value: i, label: avp.LightPresets[i].name
-    });
-  }
-
   window.NOP_APP = app;
   app.addEventListener("dom-change", function() {
     console.log("Polymer Ready!");
 
     var viewerElem = document.querySelector("#viewer");
     var viewer = viewerElem.viewer;
+
+    var avp = Autodesk.Viewing.Private;
+    var envs = [];
+    for (var i=0; i<avp.LightPresets.length; i++) {
+      envs.push({
+        value: i, label: avp.LightPresets[i].name
+      });
+    }
+    app.envs = envs;  // need to set it after, to trigger data binding
+
     function firstLoad() {
       viewer.setLightPreset(10);
       var camera = viewer.getCamera();

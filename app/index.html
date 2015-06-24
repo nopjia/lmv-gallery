@@ -18,7 +18,7 @@
   <!-- endbuild-->
 
   <!-- build:js scripts/vendor.js -->
-  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
   <!-- endbuild -->
 
   <!-- will be replaced with elements/elements.vulcanized.html -->
@@ -60,7 +60,7 @@
           <div class="line"><paper-toggle-button onchange="{{setReflections}}"></paper-toggle-button><span class="label">Reflections</span><br></div>
         </paper-material>
         <paper-menu class="panel dnone lighting">
-          <template is="dom-repeat" items="{{envList}}">
+          <template is="dom-repeat" items="{{envs}}">
             <paper-item value="{{item.value}}" onclick="{{setLighting}}">{{item.label}}</paper-item>
           </template>
         </paper-menu>
@@ -110,6 +110,15 @@
   <!-- build:js scripts/main.js -->
   <script src="scripts/main.js"></script>
   <!-- endbuild -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-13260028-4', 'auto');
+    ga('send', 'pageview');
+  </script>
 </body>
 
 </html>
