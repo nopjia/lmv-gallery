@@ -97,9 +97,14 @@
     <div class="section-footer">
       <div class="container">
         <div class="row">
-          Made with <iron-icon icon="favorite" style="color:red; height:2rem; margin-top:-.4rem;"></iron-icon><br>
-          By Nop Jiarathanakul, Alice Chang, Shiya Luo<br>
-          Copyright © 2015 Autodesk, Inc.
+          Made with <iron-icon icon="favorite" style="color:#FF4081; height:2rem; margin-top:-.4rem;"></iron-icon>
+          by Nop Jiarathanakul, Shiya Luo, and Alice Chang
+          <br>
+          Copyright &copy;
+          <span id="copyright">
+            <script>document.getElementById("copyright").appendChild(document.createTextNode(new Date().getFullYear()))</script>
+          </span>
+          Autodesk, Inc.
         </div>
       </div>
     </div>
