@@ -36,11 +36,11 @@
       image: "http://lmv.rocks/gallery/thumbs/thumb_racecar.jpg",
       url: "http://lmv.rocks/data/racecar/Design.svf"
     },
-    // {
-    //   name: "Mountain Bike",
-    //   image: "http://lmv.rocks/gallery/thumbs/thumb_bike.jpg",
-    //   url: "https://lmv.rocks/data/bike/0.svf"
-    // },
+    {
+      name: "Mountain Bike",
+      image: "http://lmv.rocks/gallery/thumbs/thumb_bike.jpg",
+      url: "https://lmv.rocks/data/bike/0.svf"
+    },
     {
       name: "TVR Engine",
       image: "http://lmv.rocks/gallery/thumbs/thumb_v8.jpg",
@@ -51,11 +51,11 @@
       image: "http://lmv.rocks/gallery/thumbs/thumb_tractor.jpg",
       url: "http://lmv.rocks/data/tractor4/0.svf"
     },
-    {
-      name: "Residential Exterior",
-      image: "http://lmv.rocks/gallery/thumbs/thumb_resext.jpg",
-      url: "http://lmv.rocks/data/house/Residential Exterior.obj.svf"
-    },
+    // {
+    //   name: "Residential Exterior",
+    //   image: "http://lmv.rocks/gallery/thumbs/thumb_resext.jpg",
+    //   url: "http://lmv.rocks/data/house/Residential Exterior.obj.svf"
+    // },
     {
       name: "House",
       image: "http://lmv.rocks/gallery/thumbs/thumb_house.jpg",
@@ -101,9 +101,10 @@
 
       function firstLoadFinish() {
         setTimeout(function() {
+          camera.toPerspective();
           viewer.navigation.setRequestTransition(
             true,
-            new THREE.Vector3(31850.135461880633, 16703.458680557833, -36369.33929266341),
+            new THREE.Vector3(490, 277, 522),
             camera.target,
             camera.fov,
             false
